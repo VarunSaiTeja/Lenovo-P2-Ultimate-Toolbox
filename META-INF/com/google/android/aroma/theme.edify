@@ -1,0 +1,43 @@
+﻿selectbox(
+  #-- Title
+    "<~themes.title>",
+  
+  #-- Sub Title
+    "<~themes.desc>",
+  
+  #-- Icon: <AROMA Resource Dir>/icons/personalize.png or <ThemeDir>/icon.personalize.png
+    "@personalize",
+  
+  #-- Will be saved in /tmp/aroma/theme.prop
+    "theme.prop",
+  
+  #---------------------------------[ Selectbox Without Group ]----------------------------------#
+  # TITLE            |  SUBTITLE                                                 | Initial Value #
+  #------------------+-----------------------------------------------------------+---------------#
+
+    "Green", "", 1, #-- selected.0 = 1
+	"Grey", "", 0, #-- selected.0 = 2
+	"Indigo", "", 0 #-- selected.0 = 3
+	
+  #--------[ Initial Value = 0: Unselected, 1: Selected, 2: Group Item, 3: Not Visible ]---------#
+);
+
+##
+# SET THEME
+#
+#-- Change Info:
+# file_getprop : should use absolute path "/tmp/aroma/theme.prop"
+# prop         : just use relative path "theme.prop" will automatically read the "/tmp/aroma/theme.prop"
+#
+
+if prop("theme.prop","selected.0")=="1" then
+  theme("materialize_teal");
+endif;
+
+if prop("theme.prop","selected.0")=="2" then
+  theme("materialize_blue-grey");
+endif;
+
+if prop("theme.prop","selected.0")=="3" then
+  theme("materialize_indigo");
+endif;

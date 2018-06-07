@@ -1,0 +1,17 @@
+﻿checkbox(
+    "Stock Media",
+  
+    "Restore your Stock Media",
+  
+    "@welcome",
+    
+    "stock.prop",
+  
+	"Boot Animation","Orginal Boot Animation",0,
+	"Emoji","Stock Emoji",0,
+    "Fonts","Stock Fonts",0,
+	"Media","Ringtones ,Notification ,Ui Sounnds",0,
+	"sol","Comes after after boot logo",0
+);
+
+include("install.edify");

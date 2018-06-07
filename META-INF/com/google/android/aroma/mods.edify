@@ -1,0 +1,21 @@
+﻿checkbox(
+    "Mods & Tweaks",
+  
+    "Select best tweaks for your device.",
+  
+    "@welcome",
+    
+    "mods.prop",
+  
+    "Ad blocker","Block ads with modified host file",0,
+	"Ad Unblocker","Restores orginal host file",0,
+	"Clear Battery Stats Data","start with fresh battery stats",0,
+	"Google Camera Patch","Fix Slowmotion & 60fps",0,
+    "Google Lens","Installs Google lens in phone",0,
+	"Google Photos patch","Upload unlimited photos & videos in orginal quality",0,
+	"IOS 11 Emoji","Installs Apple IOS 11 Emoji in phone",0,
+	"Oreo Emoji","Installs Oreo Bloob Emoji in phone",0,
+	"Progress Bar","App that shows progress in status bar as a line",0
+);
+
+include("install.edify");

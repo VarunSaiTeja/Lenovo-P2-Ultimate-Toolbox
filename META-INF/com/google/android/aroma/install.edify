@@ -1,0 +1,42 @@
+﻿ini_set("text_next", "Install Now");
+ini_set("icon_next", "@installbutton");
+
+viewbox(
+  #-- Title
+    "Ready to Install",
+
+  #-- Text
+	"Press <b>Install Now</b> to begin the installation.\n\n"+
+	"If you want to review or change any of your installation settings\n\n"+
+	"Press <b>Back</b> to goback to the previous menu.\n\n"+
+	"Press Menu Key -> Quit Installation to exit the toolbox",
+
+  #-- Icon
+    "@install"
+);
+
+ini_set("text_next", "Next");
+ini_set("icon_next", "@next");
+
+setvar("retstatus",
+  install(
+	#-- Title
+      "Installation Page",
+	
+	#-- Installation Process message
+      "Please wait while Toolbox installs Mods & Tweaks\n\n"+
+	  "If the toolbox seems to be hanged while installation then long press the power button to Reboot your device forcely.",
+	
+	#-- Installation Icon
+      "@install",
+	
+	#-- Installation Finish Message
+      "New Mods & Tweaks by Ultimate Toolbox has successfully installed.\n\n"+
+	  "Press next to continue to the main menu."
+  )
+);
+
+ini_set("text_next", "Next");
+ini_set("icon_next", "@next");
+
+goto("mainmenu");

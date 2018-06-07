@@ -1,0 +1,22 @@
+﻿menubox(
+  #-- Title
+    "Stock Fixer",
+  
+  #-- Sub Title
+    "Select the option to Fix your phone",
+  
+  #-- Icon
+    "@custom",
+    
+  #-- Will be saved in /tmp/aroma/menu.prop
+    "fix.prop",
+    
+  #-------------------------------+-----------------[ Menubox Items ]--------------+------------------+---------------------#
+  #           TITLE               |                      SUBTITLE                  |   Item Icons     |      Selection      #
+  #-------------------------------+------------------------------------------------+------------------+---------------------#
+  
+	"Fix Voice & Volte","Fix no voice in calls","@voicefix",
+	"Fix Unknown Fonts","which appears as boxes","@fontfix"
+);
+
+include("install.edify");

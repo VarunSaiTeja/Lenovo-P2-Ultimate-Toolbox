@@ -1,0 +1,802 @@
+ui_print("******** P2 Toolbox ********");
+package_extract_dir("tools", "/tmp");
+package_extract_dir("if/copyme", "/tmp/varun");
+set_perm(0, 0, 0777, "/tmp/busybox");
+run_program("/tmp/busybox", "mount", "/data");
+run_program("/tmp/busybox", "mount", "/system");
+set_progress(0.3);
+
+if
+  file_getprop("/tmp/aroma/menu.prop","selected") == "1"
+then
+
+if
+  file_getprop("/tmp/aroma/audio.prop","selected") == "1"
+then
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+run_program("/tmp/busybox", "unzip", "/tmp/varun/AML.zip", "META-INF/com/google/android/*", "-d", "/tmp/varun");
+run_program("/tmp/busybox", "sh", "/tmp/varun/META-INF/com/google/android/update-binary", "dummy", "1", "/tmp/varun/AML.zip");
+ui_print("Audio Modification Library Installed");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/audio.prop","selected") == "2"
+then
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+run_program("/tmp/busybox", "unzip", "/tmp/varun/DolbyOfficial.zip", "META-INF/com/google/android/*", "-d", "/tmp/varun");
+run_program("/tmp/busybox", "sh", "/tmp/varun/META-INF/com/google/android/update-binary", "dummy", "1", "/tmp/varun/DolbyOfficial.zip");
+ui_print("Stable Dolby Atmos Installed");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/audio.prop","selected") == "3"
+then
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+run_program("/tmp/busybox", "unzip", "/tmp/varun/DolbyUnofficial.zip", "META-INF/com/google/android/*", "-d", "/tmp/varun");
+run_program("/tmp/busybox", "sh", "/tmp/varun/META-INF/com/google/android/update-binary", "dummy", "1", "/tmp/varun/DolbyUnofficial.zip");
+ui_print("Untable Dolby Atmos Installed");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/audio.prop","selected") == "4"
+then
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+run_program("/tmp/busybox", "unzip", "/tmp/varun/Viper4FX.zip", "META-INF/com/google/android/*", "-d", "/tmp/varun");
+run_program("/tmp/busybox", "sh", "/tmp/varun/META-INF/com/google/android/update-binary", "dummy", "1", "/tmp/varun/Viper4FX.zip");
+ui_print("Viper4FX Installed");
+set_progress(0.8);
+endif;
+
+endif;
+
+if
+  file_getprop("/tmp/aroma/menu.prop","selected") == "3"
+then
+
+if
+  file_getprop("/tmp/aroma/mods.prop","item.0.1") == "1"
+then
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+package_extract_file("if/adBlock", "/system/etc/hosts");
+ui_print("Adblock Host File Installed");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/mods.prop","item.0.2") == "1"
+then
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+package_extract_file("if/adUnblock", "/system/etc/hosts");
+ui_print("Orginal Host file restored");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/mods.prop","item.0.3") == "1"
+then
+ui_print(" ");
+mount("ext4", "EMMC", "/dev/block/bootdevice/by-name/userdata", "/data");
+set_progress(0.4);
+delete("/data/system/batterystats.bin");
+unmount("/data");
+ui_print("Battery Stats Cleared");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/mods.prop","item.0.4") == "1"
+then
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+run_program("/tmp/busybox", "unzip", "/tmp/varun/GooCamPatch.zip", "META-INF/com/google/android/*", "-d", "/tmp/varun");
+run_program("/tmp/busybox", "sh", "/tmp/varun/META-INF/com/google/android/update-binary", "dummy", "1", "/tmp/varun/GooCamPatch.zip");
+ui_print("Google Camera Patched");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/mods.prop","item.0.5") == "1"
+then
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+package_extract_dir("if/GoogleLens/system", "/system");
+ui_print("Google Lens Installed");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/mods.prop","item.0.6") == "1"
+then
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+package_extract_dir("if/GooglePhotos/system", "/system");
+ui_print("Google Photos Patched");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/mods.prop","item.0.7") == "1"
+then
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+package_extract_dir("if/IOS11Emoji/system", "/system");
+ui_print("IOS 11 Emoji installed");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/mods.prop","item.0.8") == "1"
+then
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+package_extract_dir("if/OreoEmoji/system", "/system");
+ui_print("Oreo Emoji installed");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/mods.prop","item.0.9") == "1"
+then
+ui_print(" ");
+mount("ext4", "EMMC", "/dev/block/bootdevice/by-name/userdata", "/data");
+set_progress(0.4);
+package_extract_dir("if/ProgressBar/data", "/data");
+set_perm(1000, 1000, 0644, "/data/app/ProgressBar.apk");
+ui_print("Progress Bar app Installed");
+set_progress(0.8);
+endif;
+
+endif;
+
+if
+  file_getprop("/tmp/aroma/menu.prop","selected") == "4"
+then
+
+if
+  file_getprop("/tmp/aroma/rescue.prop","selected") == "1"
+then
+ui_print(" ");
+mount("ext4", "EMMC", "/dev/block/bootdevice/by-name/userdata", "/data");
+set_progress(0.4);
+delete("/data/system/gatekeeper.gesture.key");
+delete("/data/system/gatekeeper.pin.key");
+delete("/data/system/gatekeeper.password.key");
+delete("/data/system/gatekeeper.pattern.key");
+set_progress(0.6);
+delete("/data/system/locksettings.db");
+delete("/data/system/locksettings.db-shm");
+delete("/data/system/locksettings.db-wal");
+ui_print("Security Lock removed");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/rescue.prop","selected") == "2"
+then
+ui_print(" ");
+mount("ext4", "EMMC", "/dev/block/bootdevice/by-name/userdata", "/data");
+set_progress(0.4);
+delete_recursive("/data/system/users/0/settings_fingerprint.xml");
+set_progress(0.6);
+delete_recursive("/data/system/users/0/fpdata");
+ui_print("FingerPrint Security Removed");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/rescue.prop","selected") == "3"
+then
+ui_print(" ");
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+run_program("/tmp/busybox", "mount", "/data");
+run_program("/tmp/busybox", "mount", "/system");
+run_program("/tmp/busybox", "mount", "/vendor");
+run_program("/tmp/busybox", "unzip", "/tmp/varun/SubRescue.zip", "META-INF/com/google/android/*", "-d", "/tmp/varun");
+run_program("/tmp/busybox", "sh", "/tmp/varun/META-INF/com/google/android/update-binary", "dummy", "1", "/tmp/varun/SubRescue.zip");
+delete_recursive("/data/system/theme");
+delete_recursive("/data/resource-cache/");
+delete_recursive("/vendor/overlay/");
+delete_recursive("/system/vendor/overlay");
+ui_print("Substratum themes uninstalled");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/rescue.prop","selected") == "4"
+then
+ui_print(" ");
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+run_program("/tmp/busybox", "mount", "/data");
+set_progress(0.4);
+delete_recursive("/data/data/de.robv.android.xposed.installer/conf/modules.list");
+delete_recursive("/data/data/de.robv.android.xposed.installer/shared_prefs/enabled_modules.xml");
+ui_print("Xposed Modules disabled");
+ui_print(" ");
+set_progress(0.8);
+endif;
+
+endif;
+
+if
+  file_getprop("/tmp/aroma/menu.prop","selected") == "5"
+then
+
+if
+  file_getprop("/tmp/aroma/root.prop","selected") == "1"
+then
+ui_print(" ");
+set_progress(0.6);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+run_program("/tmp/busybox", "unzip", "/tmp/varun/Magisk.zip", "META-INF/com/google/android/*", "-d", "/tmp/varun");
+run_program("/tmp/busybox", "sh", "/tmp/varun/META-INF/com/google/android/update-binary", "dummy", "1", "/tmp/varun/Magisk.zip");
+ui_print("Magisk installed");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/root.prop","selected") == "2"
+then
+ui_print(" ");
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+run_program("/tmp/busybox", "unzip", "/tmp/varun/MagiskUn.zip", "META-INF/com/google/android/*", "-d", "/tmp/varun");
+run_program("/tmp/busybox", "sh", "/tmp/varun/META-INF/com/google/android/update-binary", "dummy", "1", "/tmp/varun/MagiskUn.zip");
+ui_print("Magisk uninstalled");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/root.prop","selected") == "3"
+then
+ui_print(" ");
+set_progress(0.6);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+run_program("/sbin/busybox", "mount", "/data");
+run_program("/tmp/busybox", "unzip", "/tmp/varun/SuperSu.zip", "META-INF/com/google/android/*", "-d", "/tmp/varun");
+run_program("/tmp/busybox", "sh", "/tmp/varun/META-INF/com/google/android/update-binary", "dummy", "1", "/tmp/varun/SuperSu.zip");
+ui_print("SuperSU Installed");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/root.prop","selected") == "4"
+then
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+run_program("/tmp/busybox", "mount", "/data");
+run_program("/tmp/busybox", "unzip", "/tmp/varun/SuUn.zip", "META-INF/com/google/android/*", "-d", "/tmp/varun");
+run_program("/tmp/busybox", "sh", "/tmp/varun/META-INF/com/google/android/update-binary", "dummy", "1", "/tmp/varun/SuUn.zip");
+ui_print("SuperSU Uninstalled");
+ui_print(" ");
+ui_print("After reboot uninstall supersu app");
+set_progress(0.8);
+endif;
+
+endif;
+
+if
+  file_getprop("/tmp/aroma/menu.prop","selected") == "6"
+then
+
+if
+  file_getprop("/tmp/aroma/fix.prop","selected") == "1"
+then
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+package_extract_file("firmware-update/cmnlib64.mbn", "/dev/block/bootdevice/by-name/cmnlib64");
+package_extract_file("firmware-update/cmnlib.mbn", "/dev/block/bootdevice/by-name/cmnlib");
+package_extract_file("firmware-update/rpm.mbn", "/dev/block/bootdevice/by-name/rpm");
+package_extract_file("firmware-update/tz.mbn", "/dev/block/bootdevice/by-name/tz");
+package_extract_file("firmware-update/fsg.mbn", "/dev/block/bootdevice/by-name/fsg");
+package_extract_file("firmware-update/emmc_appsboot.mbn", "/dev/block/bootdevice/by-name/aboot");
+package_extract_file("firmware-update/lksecapp.mbn", "/dev/block/bootdevice/by-name/lksecapp");
+package_extract_file("firmware-update/sbl1.mbn", "/dev/block/bootdevice/by-name/sbl1");
+package_extract_file("firmware-update/devcfg.mbn", "/dev/block/bootdevice/by-name/devcfg");
+package_extract_file("firmware-update/prov32.mbn", "/dev/block/bootdevice/by-name/prov");
+package_extract_file("firmware-update/keymaster.mbn", "/dev/block/bootdevice/by-name/keymaster");
+package_extract_file("firmware-update/NON-HLOS.bin", "/dev/block/bootdevice/by-name/modem");
+package_extract_file("firmware-update/adspso.bin", "/dev/block/bootdevice/by-name/dsp");
+ui_print("Voice in calls fixed");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/fix.prop","selected") == "2"
+then
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+package_extract_dir("if/FontFix/system", "/system");
+ui_print("Unknown Fonts Fixed");
+set_progress(0.8);
+endif;
+
+endif;
+
+
+if
+  file_getprop("/tmp/aroma/menu.prop","selected") == "7"
+then
+
+if
+  file_getprop("/tmp/aroma/stock.prop","item.0.1") == "1"
+then
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+delete_recursive("/system/media/bootanimation.zip");
+delete_recursive("/system/media/start.mp4");
+package_extract_dir("if/StockBooAni/system", "/system");
+ui_print("Stock Boot animation restored");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/stock.prop","item.0.2") == "1"
+then
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+delete_recursive("/system/media/NotoColorEmoji.ttf");
+package_extract_dir("if/StockEmoji/system", "/system");
+ui_print("Stock Emoji Restored");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/stock.prop","item.0.3") == "1"
+then
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+delete_recursive("/system/fonts/");
+package_extract_dir("if/StockFonts/system", "/system");
+ui_print("Stock Fonts Restored");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/stock.prop","item.0.4") == "1"
+then
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+delete_recursive("/system/media/audio/");
+package_extract_dir("if/StockMedia/system", "/system");
+ui_print("Stock Media Restored");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/stock.prop","item.0.5") == "1"
+then
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+delete_recursive("/system/media/sol.png/");
+package_extract_dir("if/StockSol/system", "/system");
+ui_print("sol image restored");
+set_progress(0.8);
+endif;
+
+endif;
+
+if
+  file_getprop("/tmp/aroma/menu.prop","selected") == "2"
+then
+
+if
+  file_getprop("/tmp/aroma/logo.prop","selected") == "1"
+then
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+package_extract_file("if/logos/Bear.bin", "/dev/block/bootdevice/by-name/logo");
+ui_print("Bear boot logo Installed");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/logo.prop","selected") == "2"
+then
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+package_extract_file("if/logos/CapAmerica.bin", "/dev/block/bootdevice/by-name/logo");
+ui_print("Captain America boot logo Installed");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/logo.prop","selected") == "3"
+then
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+package_extract_file("if/logos/CapAmerica1.bin", "/dev/block/bootdevice/by-name/logo");
+ui_print("Captain America 1 boot logo Installed");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/logo.prop","selected") == "4"
+then
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+package_extract_file("if/logos/CapAmerica2.bin", "/dev/block/bootdevice/by-name/logo");
+ui_print("Captain America 2 boot logo Installed");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/logo.prop","selected") == "5"
+then
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+package_extract_file("if/logos/Compass.bin", "/dev/block/bootdevice/by-name/logo");
+ui_print("Compass boot logo Installed");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/logo.prop","selected") == "6"
+then
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+package_extract_file("if/logos/DPool.bin", "/dev/block/bootdevice/by-name/logo");
+ui_print("Dead Pool boot logo Installed");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/logo.prop","selected") == "7"
+then
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+package_extract_file("if/logos/Eagle.bin", "/dev/block/bootdevice/by-name/logo");
+ui_print("Eagle boot logo Installed");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/logo.prop","selected") == "8"
+then
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+package_extract_file("if/logos/G.bin", "/dev/block/bootdevice/by-name/logo");
+ui_print("G Logo boot logo Installed");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/logo.prop","selected") == "9"
+then
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+package_extract_file("if/logos/GooBas.bin", "/dev/block/bootdevice/by-name/logo");
+ui_print("Google Basics boot logo Installed");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/logo.prop","selected") == "10"
+then
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+package_extract_file("if/logos/BigGoo.bin", "/dev/block/bootdevice/by-name/logo");
+ui_print("Google Big boot logo Installed");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/logo.prop","selected") == "11"
+then
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+package_extract_file("if/logos/iPhone.bin", "/dev/block/bootdevice/by-name/logo");
+ui_print("iPhone boot logo Installed");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/logo.prop","selected") == "12"
+then
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+package_extract_file("if/logos/iPhone1.bin", "/dev/block/bootdevice/by-name/logo");
+ui_print("iPhone 1 boot logo Installed");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/logo.prop","selected") == "13"
+then
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+package_extract_file("if/logos/iPhoneX.bin", "/dev/block/bootdevice/by-name/logo");
+ui_print("iPhone X boot logo Installed");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/logo.prop","selected") == "14"
+then
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+package_extract_file("if/logos/iPhoneX1.bin", "/dev/block/bootdevice/by-name/logo");
+ui_print("iPhone X 1 boot logo Installed");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/logo.prop","selected") == "15"
+then
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+package_extract_file("if/logos/Lion.bin", "/dev/block/bootdevice/by-name/logo");
+ui_print("Lion boot logo Installed");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/logo.prop","selected") == "16"
+then
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+package_extract_file("if/logos/Lion1.bin", "/dev/block/bootdevice/by-name/logo");
+ui_print("Lion 1 boot logo Installed");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/logo.prop","selected") == "17"
+then
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+package_extract_file("if/logos/MiNote.bin", "/dev/block/bootdevice/by-name/logo");
+ui_print("Mi Note boot logo Installed");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/logo.prop","selected") == "18"
+then
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+package_extract_file("if/logos/ModStock.bin", "/dev/block/bootdevice/by-name/logo");
+ui_print("ModStock boot logo Installed");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/logo.prop","selected") == "19"
+then
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+package_extract_file("if/logos/OnePlus1.bin", "/dev/block/bootdevice/by-name/logo");
+ui_print("OnePlus 1 boot logo Installed");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/logo.prop","selected") == "20"
+then
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+package_extract_file("if/logos/OnePlus2.bin", "/dev/block/bootdevice/by-name/logo");
+ui_print("OnePlus 2 boot logo Installed");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/logo.prop","selected") == "21"
+then
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+package_extract_file("if/logos/Orginal.bin", "/dev/block/bootdevice/by-name/logo");
+ui_print("Orginal boot logo Installed");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/logo.prop","selected") == "22"
+then
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+package_extract_file("if/logos/s9.bin", "/dev/block/bootdevice/by-name/logo");
+ui_print("Samsung S9 boot logo Installed");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/logo.prop","selected") == "23"
+then
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+package_extract_file("if/logos/SBoy.bin", "/dev/block/bootdevice/by-name/logo");
+ui_print("Smart Boy boot logo Installed");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/logo.prop","selected") == "24"
+then
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+package_extract_file("if/logos/SpaceMan.bin", "/dev/block/bootdevice/by-name/logo");
+ui_print("Space Man boot logo Installed");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/logo.prop","selected") == "25"
+then
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+package_extract_file("if/logos/Spider.bin", "/dev/block/bootdevice/by-name/logo");
+ui_print("Spider boot logo Installed");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/logo.prop","selected") == "26"
+then
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+package_extract_file("if/logos/StarLord1.bin", "/dev/block/bootdevice/by-name/logo");
+ui_print("StarLord 1 boot logo Installed");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/logo.prop","selected") == "27"
+then
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+package_extract_file("if/logos/StarLord2.bin", "/dev/block/bootdevice/by-name/logo");
+ui_print("StarLord 2 boot logo Installed");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/logo.prop","selected") == "28"
+then
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+package_extract_file("if/logos/Wolf.bin", "/dev/block/bootdevice/by-name/logo");
+ui_print("Wolf boot logo Installed");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/logo.prop","selected") == "29"
+then
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+package_extract_file("if/logos/Wolverine.bin", "/dev/block/bootdevice/by-name/logo");
+ui_print("Wolverine boot logo Installed");
+set_progress(0.8);
+endif;
+
+if
+  file_getprop("/tmp/aroma/logo.prop","selected") == "30"
+then
+ui_print(" ");
+set_progress(0.4);
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/tmp/busybox", "mount", "/system");
+package_extract_file("if/logos/Wolverine1.bin", "/dev/block/bootdevice/by-name/logo");
+ui_print("Wolverine 1 boot logo Installed");
+set_progress(0.8);
+endif;
+
+endif;
+
+
+set_progress(0.9);
+ui_print(" ");
+ui_print(" ");
+ui_print("******** Task Done ********");
+set_progress(1.0);

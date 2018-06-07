@@ -1,0 +1,129 @@
+### FILE INFO:
+#
+# AROMA Installer 2.70 - AROMA Installer
+#       (c) 2011-2012 by Ahmad Amarullah
+#           amarullz - xda-developers
+#           http://www.amarullz.com/
+#
+#       Binary Version  : 3.00
+#       Binary Codename : Flamboyan
+
+#set fix color
+ini_set("force_colorspace","rgba");
+
+# Initializing Rom Information
+ini_set("rom_name",             "Ultimate Toolbox");
+ini_set("rom_version",          "v3.0");
+ini_set("rom_author",           "Varun");
+ini_set("rom_device",           "Lenovo P2");
+ini_set("rom_date",             "April 2018");
+
+# Show Simple Splash
+anisplash(
+    3,
+	"splash/sub (1)", 500,
+    "splash/sub (2)", 50,
+    "splash/sub (3)", 50,
+    "splash/sub (4)", 50,
+    "splash/sub (5)", 50,
+    "splash/sub (6)", 50,
+	"splash/sub (7)", 50,
+    "splash/sub (8)", 50,
+    "splash/sub (9)", 50,
+    "splash/sub (10)", 50,
+    "splash/sub (11)", 300
+);
+
+theme("materialize_teal");
+loadlang("langs/en.lang");
+fontresload( "0", "ttf/Roboto-Regular.ttf", "12" );
+fontresload( "1", "ttf/Roboto-Regular.ttf", "14" );
+
+include("language_select.edify");
+include("theme.edify");
+
+# CHANGELOG
+textbox(
+  #-- Title
+    "<~changelog.title>",
+  
+  #-- Subtitle
+    "<~changelog.desc>",
+  
+  #-- Icon
+    "@new_release",
+  
+  #-- Text Content
+    resread("changelog.txt")
+);
+
+#Welcome
+viewbox(
+    "<~welcome.title>",
+  
+    "<~welcome.text1> <b>"+
+	  ini_get("rom_name")+
+	"</b> <~common.for> <b>"+ini_get("rom_device")+"</b>.\n\n"+
+	
+      "  <~welcome.version>\t\t: <b><#selectbg_g>"+ini_get("rom_version")+"</#></b>\n\n\n"+
+      "  DEVELOPER \t\t: <b><#selectbg_g>"+ini_get("rom_author")+"</#></b>\n\n\n"+
+      "  <~welcome.updated>\t\t: <b><#selectbg_g>"+ini_get("rom_date")+"</#></b>\n\n\n"+
+
+    "<~welcome.next>",
+  
+    "@welcome"
+);
+
+gotolabel("mainmenu");  
+menubox(
+    "Ultimate Toolbox by Varun",
+  
+    "Select Category",
+  
+    "@welcome",
+    
+    "menu.prop",
+    
+	"Audio Manager","Manage device with audio effects","@audio",
+	"Boot Logo","Collection of best boot logos","@logo",
+	"Mods & Tweaks","modify your device with new tweaks","@info",
+    "Rescue Manager","Recover your phone from bootloop","@rescue",
+	"Root Manager","Manage Root binary of device","@root",
+	"Stock Fix","Fix problems facing in stock","@fix",
+	"Stock Media","Animations ,Emoji ,Fonts ,Ringtones","@stock",
+	"Exit","Dont want to install any modifications","@exit"
+	
+);
+
+
+if prop("menu.prop","selected")=="1" then
+include("audio.edify");
+endif;
+
+if prop("menu.prop","selected")=="2" then
+include("logo.edify");
+endif;
+
+if prop("menu.prop","selected")=="3" then
+include("mods.edify");
+endif;
+
+if prop("menu.prop","selected")=="4" then
+include("rescue.edify");
+endif;
+
+if prop("menu.prop","selected")=="5" then
+include("root.edify");
+endif;
+
+if prop("menu.prop","selected")=="6" then
+include("fix.edify");
+endif;
+
+if prop("menu.prop","selected")=="7" then
+include("stock.edify");
+endif;
+
+if prop("menu.prop","selected")=="8" then
+exit("");
+endif;

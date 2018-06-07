@@ -1,0 +1,26 @@
+<b><#selectbg_g>  AROMA</#></b>
+<*>binary updated</*>
+<*>aroma updated to 3.00</*>
+<*>more neon improve</*>
+<*>tweaks some ui</*>
+<*>graphics processing</*>
+
+
+<b><#selectbg_g> ToolBox Customization</#></b>
+<*>Now every tweak and modification divided into categories</*>
+<*>Now you can select language of toolbox</*>
+<*>Now you can select theme of toolbox</*>
+<*>Added Exit option to quit without installiing any modification</*>
+<*>Many more...</*>
+
+<b><#selectbg_g> Tweaks added in ToolBox</#></b>
+<*>30 Amazing Boot Logos</*>
+<*>Audio Modification Library</*>
+<*>Dolby for Nougat</*>
+<*>Dolby for Oreo</*>
+<*>Fix Stock Camera issues</*>
+<*>Fix Voice In Calls</*>
+<*>Progress Bar App 2.0</*>
+<*>Stock Media</*>
+<*>Viper4Fx for Nougat & Oreo</*>
+<*>Many More...</*>

@@ -1,0 +1,3 @@
+Exctract NON-HLOS.rar , You will get NON-HLOS.bin
+delete NON-HLOS.rar
+keep NON-HLOS.bin

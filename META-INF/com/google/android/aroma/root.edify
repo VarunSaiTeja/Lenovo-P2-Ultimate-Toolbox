@@ -1,0 +1,24 @@
+﻿menubox(
+  #-- Title
+    "Root Manager",
+  
+  #-- Sub Title
+    "Manage your deivce root binary.",
+  
+  #-- Icon
+    "@custom",
+    
+  #-- Will be saved in /tmp/aroma/menu.prop
+    "root.prop",
+    
+  #-------------------------------+-----------------[ Menubox Items ]--------------+------------------+---------------------#
+  #           TITLE               |                      SUBTITLE                  |   Item Icons     |      Selection      #
+  #-------------------------------+------------------------------------------------+------------------+---------------------#
+  
+    "Magisk Installer","Root device with magisk binary","@magisk",
+	"Magisk Remover","Uninstall magisk su and it files","@unroot",
+	"SuperSU Installer","Root device with supersu binary ","@supersu",
+    "SuperSU Remover","Remove any supersu binary ","@unroot"
+);
+
+include("install.edify");

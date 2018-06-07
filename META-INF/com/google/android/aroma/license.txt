@@ -1,0 +1,21 @@
+<@center><b><#selectbg_g>Lenovo P2 Toolbox</#></b>
+<u>http://YouTube.com/VarunTeja</u>
+
+<b><#selectbg_g>TERMS AND CONDITIONS FOR USE</#></b></@>
+
+<@fill><q>
+
+I am not responsible for any problem
+
+Take a backup of important partitions in TWRP
+
+If anything goes wrong you can restore
+
+During installation process sometimes Toolbox may seems to be stuck at installation ,but be patience it will show total installation result after completing installation
+
+Sometimes Reboot now option which comes after installation will not work properly according to the tweaks you installed ,Don't worry you can reboot device manually
+
+If the toolbox hangs  for more that 5 min then long press power button to reboot device normally
+</q></@>
+
+<@center><b><#selectbg_g>END OF TERMS AND CONDITIONS</#></b></@>
